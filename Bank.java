@@ -23,23 +23,29 @@ public class Bank {
 		}
 	}
 	public void searchAccount(String acc_no)//parameterized method...
-	{           
-		
+        {          
 		Iterator<CustomerDetails> i=hs.iterator();//fetching data from vector using iterator
+		boolean a = false;
 		while(i.hasNext())
 		{
 			Object obj=i.next();
 			cd=(CustomerDetails)obj;
-			if(cd.getCustomerAccNo().equals(acc_no)) {
+			if(cd.getCustomerAccNo().equals(acc_no)) 
+			{
 		System.out.println(cd.getCustomerName()+"\t"+cd.getCustomerID()+"\t"+cd.getCustomerAccNo()+"\t"+
-		             	 cd.getAcc_type()+"\t"+cd.getBalance());
+				 cd.getAcc_type()+"\t"+cd.getBalance());
+		     a=true;
 		}
-			else {
+		}	
+			if(a)
+			{
+				System.out.println("Account exists.........");
+			}
+			else 
+			{
 				System.out.println("Account does not exists......");
 			}
-		}
 	}
-	
 	public void withdrawn(String acc_no,int withdrawal)
 	{
 	
